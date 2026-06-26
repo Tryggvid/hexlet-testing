@@ -1,23 +1,10 @@
+import { strict as assert } from 'node:assert';
 import capitalize from '../src/capitalize.js';
 
-// Основной сценарий
-if (capitalize('hello') !== 'Hello') {
-  throw new Error('Функция работает неверно для обычной строки');
-}
-
-// Пограничный случай: пустая строка
-if (capitalize('') !== '') {
-  throw new Error('Функция работает неверно для пустой строки');
-}
-
-// Пограничный случай: строка из одного символа
-if (capitalize('a') !== 'A') {
-  throw new Error('Функция работает неверно для строки из одного символа');
-}
-
-// Пограничный случай: строка уже с заглавной буквы
-if (capitalize('Hello') !== 'Hello') {
-  throw new Error('Функция работает неверно для строки с заглавной буквой');
-}
+// assert.equal(actual, expected)
+assert.equal(capitalize(''), '');
+assert.equal(capitalize('hello'), 'Hello');
+assert.equal(capitalize('a'), 'A');
+assert.equal(capitalize('Hello'), 'Hello');
 
 console.log('✅ Все тесты пройдены!');
